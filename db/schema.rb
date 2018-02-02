@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20171128195048) do
     t.boolean "winner"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["replay_id"], name: "index_players_on_replay_id"
+    t.index ["replay_id", "map_id"], name: "index_players_on_replay_id_and_map_id"
   end
 
   create_table "replays", force: :cascade do |t|

@@ -22,7 +22,7 @@ parsed_characters.each do |character_info|
   new_character.save
 end
 
-raw_maps = RestClient.get("http://hotsapi.net/api/v1/maps")
+raw_maps = RestClient.get("https://hotsapi.net/api/v1/maps")
 parsed_maps = JSON.parse(raw_maps)
 
 parsed_maps.each do |map_info|
@@ -36,7 +36,8 @@ x = 1
 
 valid_game_types = ['QuickMatch', 'HeroLeague', 'TeamLeague']
 while x < 2500
-  raw_page = RestClient.get("http://hotsapi.net/api/v1/replays/paged?page=#{x}&start_date=2017-10-25&with_players=true")
+
+  raw_page = RestClient.get("https://hotsapi.net/api/v1/replays/paged?page=#{x}&start_date=2017-12-01&with_players=true")
   replay_page = JSON.parse(raw_page)
   unless replay_page['replays'] == []
     replay_page['replays'].each do |replay|
